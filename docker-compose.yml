@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+    client:
+        # Use a static website hosting service in production
+        # See https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#deployment
+        build:
+            context: .
+        volumes:
+            - .:/usr/src/client:rw
+            - /usr/src/client/node_modules
+        ports:
+            - "8081:3000"
+
+volumes:
+    db-data: {}

@@ -1,0 +1,152 @@
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/normalize";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/grid";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
+
+$color-bg: #26233e;
+$color-bg-dark: #2b1830;
+$color-bg-light: #393c63;
+$color-btn: #805fe0;
+$color-bg-alt: #4a4c54;
+$color-text: #ffffff;
+$color-text-dim: #b2b2b9;
+
+$transition: all 0.2s ease-in-out;
+
+@import "header";
+@import "menu";
+@import "btn";
+@import "list";
+@import "movie-list";
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Rajdhani', sans-serif;
+  background-color: black;
+  color: $color-text;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input {
+  background: none;
+  border: none;
+  border-bottom: 1px solid $color-text-dim;
+  color: $color-text-dim;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+a {
+  color: $color-text;
+  text-decoration: none;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+.app-image {
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-size: cover;
+}
+
+.app-colors {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(56, 31, 63, 0.9) 50%,
+      rgb(20, 11, 22) 100%
+  );
+}
+
+.app-container {
+  width: 100%;
+  height: 100%;
+  padding: 0 60px;
+  overflow: auto;
+  background: linear-gradient(
+      50deg,
+      rgba(39, 41, 68, 0.99) 0%,
+      rgba(54, 58, 96, 0.6) 12%,
+      rgba(41, 44, 56, 0.4) 49.9%,
+      rgba(67, 69, 84, 0.3) 50%,
+      rgba(34, 25, 47, 0.8) 85%,
+      rgba(23, 13, 26, 0.99) 100%
+  );
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.subtitle {
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 200px;
+  margin-bottom: 10px;
+  letter-spacing: 3px;
+}
+
+.title {
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  font-size: 52px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  line-height: 60px;
+}
+
+.release-date {
+  text-transform: uppercase;
+}
+
+.release-date,
+.description {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.genre-title {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.preloader {
+  width: 30px;
+  height: 30px;
+  display: block;
+  text-align: center;
+  margin: 15px auto;
+  background-color: rgba(white, 0.8);
+  border-radius: 1000px;
+  animation: preloader 0.6s infinite;
+}
+
+@keyframes preloader {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}

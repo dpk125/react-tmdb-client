@@ -1,0 +1,60 @@
+.header {
+	padding: 50px 0 80px;
+	font-size: 24px;
+	line-height: 35px;
+	text-transform: uppercase;
+}
+
+.header__logo {
+	display: inline-block;
+	margin-right: 60px;
+	font-weight: 900;
+}
+
+.header__action {
+	color: $color-text-dim;
+	display: inline-block;
+	margin-left: 30px;
+	line-height: 35px;
+	font-weight: 400;
+	cursor: pointer;
+	transition: $transition;
+
+	&.is-active,
+	&:hover,
+	&:focus {
+		color: $color-text;
+	}
+
+	&.is-active {
+		font-weight: 600;
+	}
+}
+
+.header-search {
+	float: right;
+}
+
+.header-search__input {
+	display: inline-block;
+}
+
+.header-search__button {
+	width: 50px;
+	height: 50px;
+	margin-top: -8px;
+	margin-left: 30px;
+	display: inline-block;
+	float: right;
+	text-align: center;
+	line-height: 50px;
+	border-radius: 1000px;
+	background: rgba($color-text-dim, 0.3);
+	cursor: pointer;
+	transition: $transition;
+
+	&:hover,
+	&:focus {
+		background: rgba($color-text-dim, 0.5);
+	}
+}

@@ -1,0 +1,30 @@
+.list {
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.list-item {
+	background-color: rgba(128, 128, 128, 0.3);
+	color: $color-text;
+	font-weight: 600;
+	font-size: 16px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	padding: 20px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+	transition: $transition;
+	cursor: pointer;
+
+	&:last-child {
+		border-bottom: none;
+	}
+
+	&:hover,
+	&:focus {
+		background-color: rgba($color-btn, 0.5);
+	}
+
+	&.is-active {
+		background-color: rgba($color-btn, 0.8);
+	}
+}

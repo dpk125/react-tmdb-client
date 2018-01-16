@@ -1,0 +1,16 @@
+.btn {
+	display: inline-block;
+	padding: 15px 25px;
+	background-color: $color-btn;
+	color: $color-text;
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 18px;
+	transition: $transition;
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		background-color: darken($color-btn, 10%);
+	}
+}

@@ -1,0 +1,66 @@
+.menu-item {
+	width: 100%;
+	height: 200px;
+	font-size: 18px;
+	font-weight: 600;
+	margin-bottom: 30px;
+	background-position: center center;
+	background-size: cover;
+	text-transform: uppercase;
+	position: relative;
+	cursor: pointer;
+	transition: $transition;
+	overflow: hidden;
+	border-radius: 4px;
+	
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: 0;
+		background: linear-gradient(20deg, #a3a3a3 0%, rgba(44, 44, 44, 0.91) 100%);
+		opacity: 0.2;
+		transition: $transition;
+	}
+
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: 0;
+		background: linear-gradient(20deg, #151515 0%, transparent 100%);
+		transition: $transition;
+		opacity: 1;
+	}
+
+	span {
+		position: absolute;
+		left: 20px;
+		text-align: center;
+		bottom: 20px;
+		z-index: 9;
+		transition: $transition;
+	}
+
+	&:hover,
+	&:focus {
+		span {
+			bottom: calc(50% - 14px);
+			font-size: 24px;
+		}
+
+		&:before {
+			opacity: 0.8;
+		}
+
+		&:after {
+			opacity: 0;
+		}
+	}
+}

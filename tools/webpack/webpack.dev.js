@@ -4,7 +4,9 @@ const CommonConfig = require('./webpack.common.js');
 
 module.exports = Merge.strategy()(CommonConfig, {
     devtool: 'cheap-module-eval-source-map',
-
+    watchOptions: {
+      poll: true
+    },
     devServer: {
         host: 'localhost',
         port: 5579,

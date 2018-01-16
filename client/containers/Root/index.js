@@ -3,7 +3,10 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import App from '../App';
-import AllPages from '../AllPages';
+import { Home } from '../../pages/Home';
+import { Genres } from '../../pages/Genres';
+import { MovieList } from "../../pages/MovieList";
+import { Movie } from "../../pages/Movie";
 
 const Root = ({ store, history }) => (
   <BrowserRouter>
@@ -11,7 +14,13 @@ const Root = ({ store, history }) => (
       <ConnectedRouter history={history}>
         <App>
           <Switch>
-            <Route path="/" component={AllPages}/>
+            <Route exact path="/" component={Home}/>
+            <Route path="/genres" component={Genres} />
+            <Route path="/most-popular" component={MovieList} />
+            <Route path="/top-rated" component={MovieList} />
+            <Route path="/upcoming" component={MovieList} />
+
+            <Route path="/movie" component={Movie} />
           </Switch>
         </App>
       </ConnectedRouter>

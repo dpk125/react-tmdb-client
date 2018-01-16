@@ -8,6 +8,7 @@ export class Rating extends React.Component {
       score: 0,
     }
   }
+
   componentDidMount() {
     setTimeout(() => {
       this.setState({
@@ -15,6 +16,7 @@ export class Rating extends React.Component {
       });
     }, 100);
   }
+
   render() {
     const { score } = this.state;
 

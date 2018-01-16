@@ -1,11 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
-import { Home } from './home';
-import { GenreNotSelected } from './genre-not-selected';
-import { Genre } from './genre';
-import { Movie } from './movie';
-import { List } from './list';
+import { withRouter, Link, NavLink } from 'react-router-dom';
+import { Search } from "../../components/Search";
 
 class App extends React.Component {
   render() {
@@ -15,32 +11,19 @@ class App extends React.Component {
         <div className="app-colors">
           <div className="app-container">
             <div className="header">
-              <Link to="/" className="header__logo">MOVIES</Link>
+              <NavLink to="/" className="header__logo">MOVIES</NavLink>
 
-              <div className="header__action">Genres</div>
-              <div className="header__action is-active">Most popular</div>
-              <div className="header__action">Top rated</div>
-              <div className="header__action">Upcomming</div>
+              <NavLink to="/genres" className="header__action" activeClassName="is-active">Genres</NavLink>
+              <NavLink to="/most-popular" className="header__action" activeClassName="is-active">Most popular</NavLink>
+              <NavLink to="/top-rated" className="header__action" activeClassName="is-active">Top rated</NavLink>
+              <NavLink to="/upcoming" className="header__action" activeClassName="is-active">Upcoming</NavLink>
 
-              <div className="header-search">
-                <input type="text" className="header-search__input" />
-                <div className="header-search__button">
-                  <i className="fa fa-search" />
-                </div>
-              </div>
+              {/*<Search />*/}
             </div>
 
             <div className="container-fluid">
-              {/* Pages */}
-
-              <Home />
-              {/*<GenreNotSelected />*/}
-              {/*<Genre />*/}
-              {/*<List />*/}
-              {/*<Movie />*/}
+              {this.props.children}
             </div>
-
-            {this.props.children}
           </div>
         </div>
       </div>

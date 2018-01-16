@@ -1,5 +1,5 @@
 import React from 'react';
-import { Rating } from './rating';
+import { Rating } from "../../components/Rating";
 
 export const Movie = () => {
   return (

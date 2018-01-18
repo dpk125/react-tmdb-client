@@ -6,7 +6,6 @@ services:
             context: .
         volumes:
             - .:/usr/src/client:rw
-            - /usr/src/client/node_modules
         ports:
             - '5579:5579'
 

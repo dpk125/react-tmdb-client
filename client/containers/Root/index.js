@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import App from '../App';
 import { Home } from '../../pages/Home';
-import { Genres } from '../../pages/Genres';
+import Genres from '../../pages/Genres';
 import MovieList from "../../pages/MovieList";
 import { Movie } from "../../pages/Movie";
 import { constants } from "../../core/constants";

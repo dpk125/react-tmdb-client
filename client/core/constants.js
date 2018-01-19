@@ -7,6 +7,10 @@ export const constants = {
     UPCOMING: 'upcoming',
     MOST_POPULAR: 'mostPopular',
   },
+  genres: {
+    REQUEST_GENRES_LIST: 'genres.REQUEST_GENRES_LIST',
+    REFRESH_GENRES_LIST: 'movies.REFRESH_GENRES_LIST',
+  },
   movies: {
     REQUEST_MOVIE_LIST: 'movies.REQUEST_MOVIE_LIST',
     REFRESH_MOVIE_LIST: 'movies.REFRESH_MOVIE_LIST',

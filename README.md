@@ -9,4 +9,4 @@ Application built using React, Redux and Redux Saga.
 
 ## Demo
 
-...
+<https://react-tmdb-client.herokuapp.com/>

@@ -8,6 +8,3 @@ services:
             - .:/usr/src/client:rw
         ports:
             - '5579:5579'
-
-volumes:
-    db-data: {}

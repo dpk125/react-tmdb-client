@@ -5,9 +5,10 @@ import { ConnectedRouter } from 'react-router-redux';
 import App from '../App';
 import { Home } from '../../pages/Home';
 import Genres from '../../pages/Genres';
-import MovieList from "../../pages/MovieList";
+import MovieList from "../../components/MovieList";
 import { Movie } from "../../pages/Movie";
 import { constants } from "../../core/constants";
+import {CategoryMovieList} from "../../pages/CategoryMovieList";
 
 const Root = ({ store, history }) => (
   <BrowserRouter>
@@ -17,9 +18,30 @@ const Root = ({ store, history }) => (
           <Switch>
             <Route exact path="/" component={Home}/>
             <Route path="/genres" component={Genres} />
-            <Route path="/most-popular" render={() => <MovieList category={constants.category.MOST_POPULAR}/>} />
-            <Route path="/top-rated" render={() => <MovieList category={constants.category.TOP_RATED}/>} />
-            <Route path="/upcoming" render={() => <MovieList category={constants.category.UPCOMING}/>} />
+            <Route
+              path="/most-popular"
+              render={() => (
+                <CategoryMovieList category={constants.category.MOST_POPULAR}>
+                  Most popular
+                </CategoryMovieList>
+              )}
+            />
+            <Route
+              path="/top-rated"
+              render={() => (
+                <CategoryMovieList category={constants.category.TOP_RATED}>
+                  Top rated
+                </CategoryMovieList>
+              )}
+            />
+            <Route
+              path="/upcoming"
+              render={() => (
+                <CategoryMovieList category={constants.category.UPCOMING}>
+                  Upcoming
+                </CategoryMovieList>
+              )}
+            />
             <Route path="/movie" component={Movie} />
           </Switch>
         </App>

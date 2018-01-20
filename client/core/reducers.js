@@ -1,11 +1,11 @@
 import { routerReducer as routing } from 'react-router-redux';
 import { combineReducers } from 'redux';
-import movies from "./modules/movies/moviesReducer";
+import cache from "./modules/cache/cacheReducer";
 import genres from "./modules/genres/genresReducer";
 
 const rootReducer = combineReducers({
   routing,
-  movies,
+  cache,
   genres
 });
 

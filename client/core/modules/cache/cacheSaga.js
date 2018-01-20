@@ -2,10 +2,17 @@ import { takeLatest, call, all, put, select } from 'redux-saga/effects';
 import { constants } from '../../../core/constants';
 import { endpoint } from '../../api/endpoints';
 import { get } from '../../api/requests';
-import { appendToMovieList } from "./moviesActions";
+import { appendToMovieList } from './cacheActions';
 
 function* onMoviesRequest({ payload: { category }}) {
-  const { response, error } = yield call(get,  endpoint.movies(category));
+  const { cache } = yield select();
+  const path = endpoint.movies(category);
+
+  if (cache.has(path)) {
+    return;
+  }
+
+  const { response, error } = yield call(get, path);
 
   if (response) {
     const { data } = response;
@@ -16,7 +23,7 @@ function* onMoviesRequest({ payload: { category }}) {
       return { id, title, rating, poster };
     });
 
-    yield put(appendToMovieList(category, movies));
+    yield put(appendToMovieList(path, movies));
   }
 }
 

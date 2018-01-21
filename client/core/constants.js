@@ -14,5 +14,8 @@ export const constants = {
   movies: {
     REQUEST_MOVIE_LIST: 'movies.REQUEST_MOVIE_LIST',
     REFRESH_MOVIE_LIST: 'movies.REFRESH_MOVIE_LIST',
+    REQUEST_MOVIE: 'movies.REQUEST_MOVIE',
+    SAVE_MOVIE: 'movies.SAVE_MOVIE',
+    CHANGE_BACKGROUND: 'movies.CHANGE_BACKGROUND', // TODO: move
   }
 };

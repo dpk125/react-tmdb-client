@@ -5,7 +5,7 @@ import { ConnectedRouter } from 'react-router-redux';
 import App from '../App';
 import { Home } from '../../pages/Home';
 import Genres from '../../pages/Genres';
-import { Movie } from '../../pages/Movie';
+import Movie from '../../pages/Movie';
 import { constants } from '../../core/constants';
 import { CategoryMovieList } from '../../pages/CategoryMovieList';
 
@@ -41,7 +41,10 @@ const Root = ({ store, history }) => (
                 </CategoryMovieList>
               )}
             />
-            <Route path="/movie" component={Movie} />
+            <Route
+              path="/movie/:id"
+              component={Movie}
+            />
           </Switch>
         </App>
       </ConnectedRouter>

@@ -6,7 +6,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app-image"
-           style={{ backgroundImage: `url('https://image.tmdb.org/t/p/original/AdYJMNhcXVeqjRenSHP88oaLCaC.jpg')` }}>
+           style={{ backgroundImage: `url('${this.props.background}')` }}>
         <div className="app-colors">
           <div className="app-container">
             <div className="header">
@@ -30,7 +30,9 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = () => ({});
+const mapStateToProps = (state) => ({
+  background: state.cache.get('background')
+});
 
 const mapDispatchToProps = () => ({});
 

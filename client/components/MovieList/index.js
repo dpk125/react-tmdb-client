@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { requestMovies } from '../../core/modules/cache/cacheActions';
-import { Movie } from '../Movie/index';
+import { MoviePoster } from '../MoviePoster/index';
 import { endpoint } from '../../core/api/endpoints';
 import { Preloader } from '../Preloader';
 
@@ -30,7 +30,7 @@ class MovieList extends React.Component {
           {this.props.cache.get(endpoint.movies(this.props.category), []).map(
             movie => (
               <div key={movie.id} className="col-sm-2">
-                <Movie {...movie} />
+                <MoviePoster {...movie} />
               </div>
             )
           )}

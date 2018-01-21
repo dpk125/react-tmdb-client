@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { requestMovie } from '../../core/modules/cache/cacheActions';
 import { Rating } from '../../components/Rating';
 import { Preloader } from '../../components/Preloader';
-import { getPosterUrl } from '../../core/helpers/imageUrlResolver';
+import { MoviePoster } from '../../components/MoviePoster';
 
 class Movie extends React.Component {
   componentWillMount() {
-    const { match } = this.props;
-    this.props.onMovieRequest(match.params.id);
+    const { onMovieRequest, match } = this.props;
+    onMovieRequest(match.params.id);
   }
 
   render() {
@@ -23,12 +23,11 @@ class Movie extends React.Component {
       <div className="row">
         <div className="col-sm-8 col-sm-offset-2">
           <div className="row">
-            <div className="col-sm-4">
-              <div className="movie-list-item"
-                   style={{ backgroundImage: `url('${getPosterUrl(movie.poster)}')` }}>
-                <span className="movie-list-item__rating">{movie.rating}</span>
+            {movie.poster && (
+              <div className="col-sm-4">
+                <MoviePoster {...movie} />
               </div>
-            </div>
+            )}
 
             <div className="col-sm-8">
               <div className="release-date">
@@ -43,7 +42,9 @@ class Movie extends React.Component {
                 {movie.description}
               </div>
 
-              <Rating score={movie.rating} />
+              {movie.rating && (
+                <Rating score={movie.rating} />
+              )}
             </div>
           </div>
         </div>

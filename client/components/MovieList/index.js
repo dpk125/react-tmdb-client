@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { requestMovies } from '../../core/modules/cache/cacheActions';
 import { MoviePoster } from '../MoviePoster/index';
@@ -30,7 +31,9 @@ class MovieList extends React.Component {
           {this.props.cache.get(endpoint.movies(this.props.category), []).map(
             movie => (
               <div key={movie.id} className="col-sm-2">
-                <MoviePoster {...movie} />
+                <Link to={`/movie/${movie.id}`}>
+                  <MoviePoster {...movie} />
+                </Link>
               </div>
             )
           )}

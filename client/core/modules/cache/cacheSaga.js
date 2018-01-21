@@ -44,12 +44,12 @@ function* onMovieRequest({ payload: { id }}) {
       id,
       title,
       overview: description,
-      vote_average: rating,
       poster_path: poster,
       backdrop_path: backdrop,
       release_date: releaseDate,
     } = data;
 
+    const rating = data.vote_average || null;
     const movie = { id, title, description, rating, poster, backdrop, releaseDate };
 
     yield put(saveMovie(movie));

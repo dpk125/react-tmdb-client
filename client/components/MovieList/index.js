@@ -41,7 +41,10 @@ class MovieList extends React.Component {
 }
 
 MovieList.propTypes = {
-  category: PropTypes.string,
+  category: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
 };
 
 const mapStateToProps = state => ({

@@ -26,7 +26,7 @@ class Genres extends React.Component {
                 key={genre.id}
                 className="list-item"
                 activeClassName="is-active"
-                to={{ pathname: `/genres/${genre.id}` }}>
+                to={{ pathname: `/genres/${genre.name}` }}>
                 {genre.name}
               </NavLink>
             })}
@@ -35,7 +35,10 @@ class Genres extends React.Component {
 
         <div className="col-sm-9">
           <Switch>
-            <Route path="/genres/:id" render={({ match }) => <MovieList category={match.params.id} />} />
+            <Route path="/genres/:name" render={({ match }) => {
+              const genre = genres.find(genre => genre.name === match.params.name);
+              return <MovieList category={genre.id} />
+            }} />
             <Route component={() => <div className="genre-title">Please select a genre</div>} />
           </Switch>
         </div>

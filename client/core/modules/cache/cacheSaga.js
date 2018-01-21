@@ -1,10 +1,10 @@
-import { takeLatest, call, all, put, select } from 'redux-saga/effects';
+import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import { constants } from '../../../core/constants';
 import { endpoint } from '../../api/endpoints';
 import { get } from '../../api/requests';
 import { appendToMovieList } from './cacheActions';
 
-function* onMoviesRequest({ payload: { category }}) {
+function* onMoviesRequest({ payload: { category } }) {
   const { cache } = yield select();
   const path = endpoint.movies(category);
 

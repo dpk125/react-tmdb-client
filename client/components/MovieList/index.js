@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 import { requestMovies } from '../../core/modules/cache/cacheActions';
-import { Movie } from "../Movie/index";
-import { endpoint } from "../../core/api/endpoints";
+import { Movie } from '../Movie/index';
+import { endpoint } from '../../core/api/endpoints';
+import { Preloader } from '../Preloader';
 
 class MovieList extends React.Component {
   componentWillMount() {
@@ -11,12 +12,18 @@ class MovieList extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if(nextProps.category !== this.props.category){
+    if (nextProps.category !== this.props.category) {
       this.props.onMovieListRequest(nextProps.category);
     }
   }
 
   render() {
+    const movies = this.props.cache.get(endpoint.movies(this.props.category));
+
+    if (!movies) {
+      return <Preloader />;
+    }
+
     return (
       <div className="movie-list">
         <div className="row">
@@ -33,7 +40,7 @@ class MovieList extends React.Component {
   }
 }
 
-MovieList.propTypes ={
+MovieList.propTypes = {
   category: PropTypes.string,
 };
 

@@ -1,4 +1,4 @@
-import { Map, List } from 'immutable';
+import { List } from 'immutable';
 import { constants } from '../../constants';
 
 const initialState = new List([]);

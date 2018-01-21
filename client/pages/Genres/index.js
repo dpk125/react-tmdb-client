@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route, NavLink, Switch } from 'react-router-dom';
-import {requestGenres} from "../../core/modules/genres/genresActions";
+import { NavLink, Route, Switch } from 'react-router-dom';
+import { requestGenres } from '../../core/modules/genres/genresActions';
 import MovieList from '../../components/MovieList'
-import {SelectGenre} from "../../components/SelectGenre";
+import { Preloader } from '../../components/Preloader';
 
 class Genres extends React.Component {
   componentWillMount() {
@@ -11,7 +11,11 @@ class Genres extends React.Component {
   }
 
   render() {
-    const isLoading = true;
+    const genres = this.props.genres;
+
+    if (genres.isEmpty()) {
+      return <Preloader />
+    }
 
     return (
       <div className="row">
@@ -31,8 +35,8 @@ class Genres extends React.Component {
 
         <div className="col-sm-9">
           <Switch>
-            <Route path="/genres/:id" render={({ match }) => <MovieList category={match.params.id} /> } />
-            <Route component={SelectGenre}/>
+            <Route path="/genres/:id" render={({ match }) => <MovieList category={match.params.id} />} />
+            <Route component={() => <div className="genre-title">Please select a genre</div>} />
           </Switch>
         </div>
       </div>

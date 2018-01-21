@@ -24,13 +24,13 @@ export class Rating extends React.Component {
       <div className="radial-progress" data-progress={score * 10}>
         <div className="circle">
           <div className="mask full">
-            <div className="fill"/>
+            <div className="fill" />
           </div>
           <div className="mask half">
-            <div className="fill"/>
-            <div className="fill fix"/>
+            <div className="fill" />
+            <div className="fill fix" />
           </div>
-          <div className="shadow"/>
+          <div className="shadow" />
         </div>
         <div className="inset">
           <div className="percentage">

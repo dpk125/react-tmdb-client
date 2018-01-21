@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter, Link, NavLink } from 'react-router-dom';
-import { Search } from "../../components/Search";
+import { NavLink, withRouter } from 'react-router-dom';
 
 class App extends React.Component {
   render() {
     return (
       <div className="app-image"
-           style={{ backgroundImage: `url('https://image.tmdb.org/t/p/original/AdYJMNhcXVeqjRenSHP88oaLCaC.jpg')`}}>
+           style={{ backgroundImage: `url('https://image.tmdb.org/t/p/original/AdYJMNhcXVeqjRenSHP88oaLCaC.jpg')` }}>
         <div className="app-colors">
           <div className="app-container">
             <div className="header">

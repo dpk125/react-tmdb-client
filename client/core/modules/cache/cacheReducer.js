@@ -1,11 +1,7 @@
-import { Map, List } from 'immutable';
+import { Map } from 'immutable';
 import { constants } from '../../constants';
 
-const initialState = Map({
-  upcoming: new List([]),
-  topRated: new List([]),
-  mostPopular: new List([]),
-});
+const initialState = Map({});
 
 const movies = (state = initialState, action) => {
   switch (action.type) {

@@ -1,4 +1,4 @@
-import { constants } from "../constants";
+import { constants } from '../constants';
 
 export const baseURL = 'https://api.themoviedb.org/3';
 

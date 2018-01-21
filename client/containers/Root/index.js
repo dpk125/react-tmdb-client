@@ -1,14 +1,13 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import App from '../App';
 import { Home } from '../../pages/Home';
 import Genres from '../../pages/Genres';
-import MovieList from "../../components/MovieList";
-import { Movie } from "../../pages/Movie";
-import { constants } from "../../core/constants";
-import {CategoryMovieList} from "../../pages/CategoryMovieList";
+import { Movie } from '../../pages/Movie';
+import { constants } from '../../core/constants';
+import { CategoryMovieList } from '../../pages/CategoryMovieList';
 
 const Root = ({ store, history }) => (
   <BrowserRouter>
@@ -16,7 +15,7 @@ const Root = ({ store, history }) => (
       <ConnectedRouter history={history}>
         <App>
           <Switch>
-            <Route exact path="/" component={Home}/>
+            <Route exact path="/" component={Home} />
             <Route path="/genres" component={Genres} />
             <Route
               path="/most-popular"

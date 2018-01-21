@@ -1,11 +1,11 @@
-import { takeLatest, call, all, put, select } from 'redux-saga/effects';
+import { all, call, put, takeLatest } from 'redux-saga/effects';
 import { constants } from '../../../core/constants';
 import { endpoint } from '../../api/endpoints';
 import { get } from '../../api/requests';
 import { appendToGenresList } from './genresActions';
 
 function* onGenresRequest() {
-  const { response, error } = yield call(get,  endpoint.genres());
+  const { response, error } = yield call(get, endpoint.genres());
 
   if (response) {
     const { data } = response;

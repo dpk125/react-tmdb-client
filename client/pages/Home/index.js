@@ -16,49 +16,49 @@ export const Home = () => (
         <div className="row">
           <div className="col-sm-4">
             <div className="menu-item"
-                 style={{ backgroundImage: `url('https://image.tmdb.org/t/p/w342/A30ZqEoDbchvE7mCZcSp6TEwB1Q.jpg')`}}>
+                 style={{ backgroundImage: `url('https://image.tmdb.org/t/p/w342/A30ZqEoDbchvE7mCZcSp6TEwB1Q.jpg')` }}>
               <span>All</span>
             </div>
           </div>
 
           <div className="col-sm-4">
             <div className="menu-item"
-                 style={{ backgroundImage: `url('https://image.tmdb.org/t/p/w342/paT9Ovofjj30JvsDRyhFfjgUEfn.jpg')`}}>
+                 style={{ backgroundImage: `url('https://image.tmdb.org/t/p/w342/paT9Ovofjj30JvsDRyhFfjgUEfn.jpg')` }}>
               <span>Search</span>
             </div>
           </div>
 
           <div className="col-sm-4">
             <div className="menu-item"
-                 style={{ backgroundImage: `url('https://image.tmdb.org/t/p/w342/vsjBeMPZtyB7yNsYY56XYxifaQZ.jpg')`}}>
+                 style={{ backgroundImage: `url('https://image.tmdb.org/t/p/w342/vsjBeMPZtyB7yNsYY56XYxifaQZ.jpg')` }}>
               <span>Genres</span>
             </div>
           </div>
 
           <div className="col-sm-4">
             <div className="menu-item"
-                 style={{ backgroundImage: `url('https://image.tmdb.org/t/p/w342/vjZRXcAUH33SHsQeMScwsZcA5uk.jpg')`}}>
+                 style={{ backgroundImage: `url('https://image.tmdb.org/t/p/w342/vjZRXcAUH33SHsQeMScwsZcA5uk.jpg')` }}>
               <span>Most popular</span>
             </div>
           </div>
 
           <div className="col-sm-4">
             <div className="menu-item"
-                 style={{ backgroundImage: `url('https://image.tmdb.org/t/p/w342/nbIrDhOtUpdD9HKDBRy02a8VhpV.jpg')`}}>
+                 style={{ backgroundImage: `url('https://image.tmdb.org/t/p/w342/nbIrDhOtUpdD9HKDBRy02a8VhpV.jpg')` }}>
               <span>Top rated</span>
             </div>
           </div>
 
           <div className="col-sm-4">
             <div className="menu-item"
-                 style={{ backgroundImage: `url('https://image.tmdb.org/t/p/w342/8fDHXLHYTOLR064YIWxxcVVl2qz.jpg')`}}>
+                 style={{ backgroundImage: `url('https://image.tmdb.org/t/p/w342/8fDHXLHYTOLR064YIWxxcVVl2qz.jpg')` }}>
               <span>Upcomming</span>
             </div>
           </div>
 
           <div className="col-sm-4">
             <div className="menu-item"
-                 style={{ backgroundImage: `url('https://image.tmdb.org/t/p/w342/xSxlmtLz2NYtO07N4WexY1y53pl.jpg')`}}>
+                 style={{ backgroundImage: `url('https://image.tmdb.org/t/p/w342/xSxlmtLz2NYtO07N4WexY1y53pl.jpg')` }}>
               <span>Wishlist</span>
             </div>
           </div>

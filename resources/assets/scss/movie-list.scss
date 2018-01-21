@@ -48,6 +48,10 @@
 		opacity: 0;
 	}
 
+	.movie-list-item__name--visible {
+		opacity: 1;
+	}
+
 	&:hover,
 	&:focus {
 		.movie-list-item__name {

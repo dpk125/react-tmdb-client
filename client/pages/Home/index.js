@@ -16,11 +16,6 @@ export const Home = () => (
       <div className="menu">
         <div className="row">
           <MenuItem
-            backgroundImage="https://image.tmdb.org/t/p/w342/A30ZqEoDbchvE7mCZcSp6TEwB1Q.jpg"
-            name="All"
-            path="/"
-          />
-          <MenuItem
             backgroundImage="https://image.tmdb.org/t/p/w342/paT9Ovofjj30JvsDRyhFfjgUEfn.jpg"
             name="Search"
             path="/search"

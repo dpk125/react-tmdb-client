@@ -1,4 +1,4 @@
-import { all, call, put, select, takeLatest } from 'redux-saga/effects';
+import { all, call, put, select, takeEvery, takeLatest } from 'redux-saga/effects';
 import { constants } from '../../../core/constants';
 import { endpoint } from '../../api/endpoints';
 import { get } from '../../api/requests';
@@ -8,12 +8,14 @@ import { getBackdropUrl } from '../../helpers/imageUrlResolver';
 function* onMoviesRequest({ payload: { category } }) {
   const { cache } = yield select();
   const path = endpoint.movies(category);
+  const page = cache.getIn([path, 'page']);
 
   if (cache.has(path)) {
-    return;
+    // return; TODO: don't load more when revisiting the same page.
+    // TODO: also stop requesting new pages when all results have been shown.
   }
 
-  const { response, error } = yield call(get, path);
+  const { response, error } = yield call(get, path, { page });
 
   if (response) {
     const { data } = response;
@@ -62,7 +64,7 @@ function* onMovieRequest({ payload: { id }}) {
 
 export default function* cacheSaga() {
   yield all([
-    takeLatest(constants.movies.REQUEST_MOVIE_LIST, onMoviesRequest),
+    takeEvery(constants.movies.REQUEST_MOVIE_LIST, onMoviesRequest),
     takeLatest(constants.movies.REQUEST_MOVIE, onMovieRequest),
   ]);
 }

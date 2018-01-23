@@ -1,4 +1,5 @@
 import React from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -19,26 +20,33 @@ class MovieList extends React.Component {
   }
 
   render() {
-    const movies = this.props.cache.get(endpoint.movies(this.props.category));
+    const movies = this.props.cache.getIn([endpoint.movies(this.props.category), 'movies'], []);
 
     if (!movies) {
       return <Preloader />;
     }
 
-    return (
-      <div className="movie-list">
-        <div className="row">
-          {this.props.cache.get(endpoint.movies(this.props.category), []).map(
-            movie => (
-              <div key={movie.id} className="col-sm-2">
-                <Link to={`/movie/${movie.id}`}>
-                  <MoviePoster {...movie} />
-                </Link>
-              </div>
-            )
-          )}
-        </div>
+    const items = movies.map((movie, index) => (
+      <div key={index} className="col-sm-2">
+        <Link to={`/movie/${movie.id}`}>
+          <MoviePoster {...movie} />
+        </Link>
       </div>
+      )
+    );
+
+    return (
+        <div className="movie-list">
+          <div className="row">
+            <InfiniteScroll
+              next={() => this.props.onMovieListRequest(this.props.category)}
+              hasMore={true}
+              loader={<Preloader/>}
+            >
+              {items}
+            </InfiniteScroll>
+          </div>
+        </div>
     )
   }
 }

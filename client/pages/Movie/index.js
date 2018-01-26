@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { requestMovie } from '../../core/modules/cache/cacheActions';
+import { requestMovie } from '../../core/modules/movies/moviesActions';
 import { Rating } from '../../components/Rating';
 import { Preloader } from '../../components/Preloader';
 import { MoviePoster } from '../../components/MoviePoster';
@@ -54,7 +54,7 @@ class Movie extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  movies: state.cache.get('movies'),
+  movies: state.movies.get('visited'),
 });
 
 const mapDispatchToProps = dispatch => ({

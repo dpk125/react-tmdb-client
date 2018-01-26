@@ -5,7 +5,7 @@ import { getPosterUrl } from '../../core/helpers/imageUrlResolver';
 export const MoviePoster = ({ title, rating, poster }) => {
   const style = {};
   if (poster) {
-    style.backgroundImage = `url(${getPosterUrl(poster, 'w640')})`;
+    style.backgroundImage = `url(${getPosterUrl(poster, 'w500')})`;
   } else {
     style.backgroundColor = '#271625';
   }
@@ -24,4 +24,5 @@ MoviePoster.propTypes = {
   title: PropTypes.string.isRequired,
   rating: PropTypes.number,
   poster: PropTypes.string,
+  size: PropTypes.number
 };

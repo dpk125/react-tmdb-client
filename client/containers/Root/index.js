@@ -7,7 +7,7 @@ import { Home } from '../../pages/Home';
 import Genres from '../../pages/Genres';
 import Movie from '../../pages/Movie';
 import { constants } from '../../core/constants';
-import { CategoryMovieList } from '../../pages/CategoryMovieList';
+import GroupMovieList from '../../pages/GroupMovieList';
 
 const Root = ({ store, history }) => (
   <BrowserRouter>
@@ -20,25 +20,25 @@ const Root = ({ store, history }) => (
             <Route
               path="/most-popular"
               render={() => (
-                <CategoryMovieList category={constants.category.MOST_POPULAR}>
-                  Most popular
-                </CategoryMovieList>
+                <GroupMovieList
+                  group={constants.category.MOST_POPULAR}
+                  title="Most popular" />
               )}
             />
             <Route
               path="/top-rated"
               render={() => (
-                <CategoryMovieList category={constants.category.TOP_RATED}>
-                  Top rated
-                </CategoryMovieList>
+                <GroupMovieList
+                  group={constants.category.TOP_RATED}
+                  title="Top rated" />
               )}
             />
             <Route
               path="/upcoming"
               render={() => (
-                <CategoryMovieList category={constants.category.UPCOMING}>
-                  Upcoming
-                </CategoryMovieList>
+                <GroupMovieList
+                  group={constants.category.UPCOMING}
+                  title="Upcoming" />
               )}
             />
             <Route

@@ -1,10 +1,10 @@
 import { all, fork } from 'redux-saga/effects';
-import cacheSaga from './modules/cache/cacheSaga';
+import moviesSaga from './modules/movies/moviesSaga';
 import genresSaga from './modules/genres/genresSaga';
 
 export default function* rootSaga() {
   yield all([
-    fork(cacheSaga),
+    fork(moviesSaga),
     fork(genresSaga)
   ]);
 }

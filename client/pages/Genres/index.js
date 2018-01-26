@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { NavLink, Route, Switch } from 'react-router-dom';
 import { requestGenres } from '../../core/modules/genres/genresActions';
-import MovieList from '../../components/MovieList'
+import GenreMovieList from '../GenreMovieList'
 import { Preloader } from '../../components/Preloader';
 
 class Genres extends React.Component {
@@ -37,7 +37,7 @@ class Genres extends React.Component {
           <Switch>
             <Route path="/genres/:name" render={({ match }) => {
               const genre = genres.find(genre => genre.name === match.params.name);
-              return <MovieList category={genre.id} />
+              return <GenreMovieList genre={genre.name} />
             }} />
             <Route component={() => <div className="genre-title">Please select a genre</div>} />
           </Switch>

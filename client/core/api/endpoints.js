@@ -12,10 +12,11 @@ export const endpoint = {
       case constants.category.UPCOMING:
         return '/movie/upcoming';
       default:
-        return `/genre/${category}/movies`;
+        return `/movie/popular`;
     }
   },
   movie: (id) => `/movie/${id}`,
   genres: () => '/genre/movie/list',
+  genre: (genre) => `/genre/${genre}/movies`,
   search: (query) => `/search/movie?query=${query}`,
 };

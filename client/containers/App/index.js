@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { NavLink, withRouter } from 'react-router-dom';
+import Search from '../../components/Search';
 
 class App extends React.Component {
   render() {
@@ -17,7 +18,7 @@ class App extends React.Component {
               <NavLink to="/top-rated" className="header__action" activeClassName="is-active">Top rated</NavLink>
               <NavLink to="/upcoming" className="header__action" activeClassName="is-active">Upcoming</NavLink>
 
-              {/*<Search />*/}
+              <Search history={this.props.history} location={this.props.location} />
             </div>
 
             <div className="container-fluid">

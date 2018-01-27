@@ -8,6 +8,7 @@ import Genres from '../../pages/Genres';
 import Movie from '../../pages/Movie';
 import { constants } from '../../core/constants';
 import GroupMovieList from '../../pages/GroupMovieList';
+import Search from '../../pages/Search';
 
 const Root = ({ store, history }) => (
   <BrowserRouter>
@@ -45,6 +46,7 @@ const Root = ({ store, history }) => (
               path="/movie/:id"
               component={Movie}
             />
+            <Route path="/search" component={Search} />
           </Switch>
         </App>
       </ConnectedRouter>

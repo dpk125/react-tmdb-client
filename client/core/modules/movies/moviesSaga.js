@@ -6,20 +6,18 @@ import { appendToCategoryMovieList, appendToGenreMovieList, changeBackground, sa
 import { getBackdropUrl } from '../../helpers/imageUrlResolver';
 import { createMovieFromResponse } from '../../factories/movieFactory';
 import { List } from 'immutable';
+import { getNextPage } from '../../helpers/pagination';
 
 function* onMoviesGenreRequest({ payload: { genre } }) {
   const { movies, genres } = yield select();
   const genreMovies = movies.getIn(['genres', genre], new List([]));
 
-  const page = Math.floor(genreMovies.size / 20) + 1;
+  const page = getNextPage(genreMovies);
   const genreId = genres.find(item => item.name === genre).id;
   const { response, error } = yield call(get, endpoint.genre(genreId), { page });
 
   if (response) {
-    const { data } = response;
-
-    const movies = data.results.map(result => createMovieFromResponse(result));
-
+    const movies = response.data.results.map(result => createMovieFromResponse(result));
     yield put(appendToGenreMovieList(genre, movies));
   }
 }
@@ -28,15 +26,11 @@ function* onMoviesGroupRequest({ payload: { group } }) {
   const { movies } = yield select();
   const categoryMovies = movies.get(group);
 
-  // TODO: extract
-  const page = Math.floor(categoryMovies.size / 20) + 1;
+  const page = getNextPage(categoryMovies);
   const { response, error } = yield call(get, endpoint.movies(group), { page });
 
   if (response) {
-    const { data } = response;
-
-    const movies = data.results.map(result => createMovieFromResponse(result));
-
+    const movies = response.data.results.map(result => createMovieFromResponse(result));
     yield put(appendToCategoryMovieList(group, movies));
   }
 }
@@ -51,9 +45,7 @@ function* onMovieRequest({ payload: { id }}) {
   const { response, error } = yield call(get, endpoint.movie(id));
 
   if (response) {
-    const { data } = response;
-    const movie = createMovieFromResponse(data);
-
+    const movie = createMovieFromResponse(response.data);
     yield put(saveMovie(movie));
 
     if (movie.backdrop) {

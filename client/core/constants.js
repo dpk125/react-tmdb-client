@@ -19,5 +19,10 @@ export const constants = {
     REQUEST_MOVIE: 'movies.REQUEST_MOVIE',
     SAVE_MOVIE: 'movies.SAVE_MOVIE',
     CHANGE_BACKGROUND: 'movies.CHANGE_BACKGROUND', // TODO: move
+  },
+  search: {
+    REQUEST_MOVIE_SEARCH: 'search.REQUEST_MOVIE_SEARCH',
+    REPLACE_SEARCH_MOVIE_LIST: 'search.REPLACE_SEARCH_MOVIE_LIST',
+    SET_SEARCH_QUERY: 'search.SET_SEARCH_QUERY',
   }
 };

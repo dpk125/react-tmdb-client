@@ -18,5 +18,5 @@ export const endpoint = {
   movie: (id) => `/movie/${id}`,
   genres: () => '/genre/movie/list',
   genre: (genre) => `/genre/${genre}/movies`,
-  search: (query) => `/search/movie?query=${query}`,
+  search: () => `/search/movie`,
 };

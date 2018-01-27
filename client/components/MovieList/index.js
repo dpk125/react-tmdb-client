@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { MoviePoster } from '../../components/MoviePoster/index';
 import PropTypes from 'prop-types';
 
-export const MovieList = ({ movies, loadMovies }) => (
+export const MovieList = ({ movies, loadMovies, paginate = true }) => (
   <div className="movie-list">
     <div className="row">
       {movies.map((movie, index) => (
@@ -15,7 +15,7 @@ export const MovieList = ({ movies, loadMovies }) => (
       ))}
     </div>
 
-    {!movies.isEmpty() && (
+    {paginate && !movies.isEmpty() && (
       <a className="btn" onClick={() => loadMovies()}>
         Load more
       </a>
@@ -25,6 +25,7 @@ export const MovieList = ({ movies, loadMovies }) => (
 
 MovieList.propTypes = {
   movies: PropTypes.object.isRequired,
-  loadMovies: PropTypes.func.isRequired,
+  loadMovies: PropTypes.func,
+  paginate: PropTypes.bool,
 };
 

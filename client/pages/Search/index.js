@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { requestMoviesBySearch } from '../../core/modules/movies/moviesActions';
 import { MovieList } from '../../components/MovieList';
+import { Preloader } from '../../components/Preloader';
 
 class Search extends React.Component {
   constructor(props) {
@@ -18,6 +19,10 @@ class Search extends React.Component {
 
   render() {
     const movies = this.props.search.get('movies');
+
+    if (movies.isEmpty() && this.props.search.get('query') !== '') {
+      return <Preloader />;
+    }
 
     return (
       <div className="row">

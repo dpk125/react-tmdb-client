@@ -19,10 +19,7 @@ class Search extends React.Component {
 
   render() {
     const movies = this.props.search.get('movies');
-
-    if (movies.isEmpty() && this.props.search.get('query') !== '') {
-      return <Preloader />;
-    }
+    const showPreloader = movies.isEmpty() && this.props.search.get('query') !== '';
 
     return (
       <div className="row">
@@ -30,9 +27,12 @@ class Search extends React.Component {
           <div className="title">Search</div>
         </div>
 
-        <div className="col-sm-9 col-offset-sm-3">
-          <MovieList movies={movies} paginate={false} />
-        </div>
+        {showPreloader
+          ? <Preloader />
+          : <div className="col-sm-9 col-offset-sm-3">
+              <MovieList movies={movies} paginate={false} />
+            </div>
+        }
       </div>
     )
   }

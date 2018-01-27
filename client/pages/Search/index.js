@@ -10,8 +10,6 @@ class Search extends React.Component {
 
     this.loadMoreResults = this.loadMoreResults.bind(this);
   }
-  componentWillMount() {
-  }
 
   loadMoreResults() {
     this.props.onSearchRequest(this.props.query);

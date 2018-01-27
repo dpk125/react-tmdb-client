@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { requestMoviesByGroup } from '../../core/modules/movies/moviesActions';
-import { MoviePoster } from '../../components/MoviePoster/index';
 import { Preloader } from '../../components/Preloader/index';
+import { MovieList } from '../../components/MovieList';
 
 class GroupMovieList extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.loadMovies = this.loadMovies.bind(this);
+  }
   componentWillMount() {
     if (this.props.movies.get(this.props.group).isEmpty()) {
       this.loadMovies();
@@ -32,15 +36,6 @@ class GroupMovieList extends React.Component {
       return <Preloader />;
     }
 
-    const items = movies.map((movie, index) => (
-       <div key={index} className="col-sm-2">
-          <Link to={`/movie/${movie.id}`}>
-            <MoviePoster {...movie} />
-          </Link>
-        </div>
-      )
-    );
-
     return (
       <div className="row">
         <div className="col-sm-3">
@@ -48,16 +43,7 @@ class GroupMovieList extends React.Component {
         </div>
 
         <div className="col-sm-9 col-offset-sm-3">
-          <div className="movie-list">
-            <div className="row">
-              {items}
-            </div>
-            {!items.isEmpty() && (
-              <a className="btn" onClick={() => this.loadMovies()}>
-                Load more
-              </a>
-            )}
-          </div>
+          <MovieList movies={movies} loadMovies={this.loadMovies} />
         </div>
       </div>
     )

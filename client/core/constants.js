@@ -24,5 +24,9 @@ export const constants = {
     REQUEST_MOVIE_SEARCH: 'search.REQUEST_MOVIE_SEARCH',
     REPLACE_SEARCH_MOVIE_LIST: 'search.REPLACE_SEARCH_MOVIE_LIST',
     SET_SEARCH_QUERY: 'search.SET_SEARCH_QUERY',
+  },
+  wishlist: {
+    ADD_TO_WISHLIST: 'wishlist.ADD_TO_WISHLIST',
+    REMOVE_FROM_WISHLIST: 'wishlist.REMOVE_FROM_WISHLIST',
   }
 };

@@ -3,12 +3,14 @@ import { combineReducers } from 'redux';
 import movies from './modules/movies/moviesReducer';
 import genres from './modules/genres/genresReducer';
 import search from './modules/search/searchReducer';
+import wishlist from './modules/wishlist/wishlistReducer';
 
 const rootReducer = combineReducers({
   routing,
   movies,
   genres,
-  search
+  search,
+  wishlist
 });
 
 export default rootReducer;

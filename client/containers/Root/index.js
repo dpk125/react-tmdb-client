@@ -9,6 +9,7 @@ import Movie from '../../pages/Movie';
 import { constants } from '../../core/constants';
 import GroupMovieList from '../../pages/GroupMovieList';
 import Search from '../../pages/Search';
+import Wishlist from '../../pages/Wishlist';
 
 const Root = ({ store, history }) => (
   <BrowserRouter>
@@ -42,6 +43,7 @@ const Root = ({ store, history }) => (
                   title="Upcoming" />
               )}
             />
+            <Route path="/wishlist" component={Wishlist} />
             <Route
               path="/movie/:id"
               component={Movie}

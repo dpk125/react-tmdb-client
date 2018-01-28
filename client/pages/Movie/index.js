@@ -5,6 +5,7 @@ import { Rating } from '../../components/Rating';
 import { Preloader } from '../../components/Preloader';
 import { MoviePoster } from '../../components/MoviePoster';
 import { getBackdropUrl } from '../../core/helpers/imageUrlResolver';
+import WishlistButton from '../../components/WishlistButton';
 
 class Movie extends React.Component {
   componentWillMount() {
@@ -39,11 +40,13 @@ class Movie extends React.Component {
       <div className="row">
         <div className="col-sm-8 col-sm-offset-2">
           <div className="row">
-            {movie.poster && (
-              <div className="col-sm-4">
-                <MoviePoster {...movie} />
+              <div className="col-sm-4 text-center">
+                {movie.poster && (
+                  <MoviePoster {...movie} />
+                )}
+
+                <WishlistButton movie={movie}/>
               </div>
-            )}
 
             <div className="col-sm-8">
               <div className="release-date">

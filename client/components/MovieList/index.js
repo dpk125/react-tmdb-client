@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MoviePoster } from '../../components/MoviePoster/index';
 import PropTypes from 'prop-types';
+import { Button } from '../Button';
 
 export const MovieList = ({ movies, loadMovies, paginate = true }) => (
   <div className="movie-list">
@@ -16,9 +17,9 @@ export const MovieList = ({ movies, loadMovies, paginate = true }) => (
     </div>
 
     {paginate && !movies.isEmpty() && (
-      <a className="btn" onClick={() => loadMovies()}>
+      <Button action={loadMovies}>
         Load more
-      </a>
+      </Button>
     )}
   </div>
 );

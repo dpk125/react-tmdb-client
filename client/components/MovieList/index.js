@@ -8,7 +8,7 @@ export const MovieList = ({ movies, loadMovies, paginate = true }) => (
     <div className="row">
       {movies.map((movie, index) => (
         <div key={index} className="col-sm-2">
-          <Link to={`/movie/${movie.id}`}>
+          <Link to={{ pathname: `/movie/${movie.id}`, state: { movie } }}>
             <MoviePoster {...movie} />
           </Link>
         </div>

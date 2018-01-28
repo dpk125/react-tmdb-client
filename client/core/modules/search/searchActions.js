@@ -9,7 +9,6 @@ export const requestMoviesBySearch = (query) => {
   }
 };
 
-
 export const replaceSearchMovieList = (movies) => {
   return {
     type: constants.search.REPLACE_SEARCH_MOVIE_LIST,

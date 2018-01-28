@@ -1,19 +1,35 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { requestMovie } from '../../core/modules/movies/moviesActions';
+import { changeBackground, requestMovie } from '../../core/modules/movies/moviesActions';
 import { Rating } from '../../components/Rating';
 import { Preloader } from '../../components/Preloader';
 import { MoviePoster } from '../../components/MoviePoster';
+import { getBackdropUrl } from '../../core/helpers/imageUrlResolver';
 
 class Movie extends React.Component {
   componentWillMount() {
-    const { onMovieRequest, match } = this.props;
-    onMovieRequest(match.params.id);
+    const { location, match } = this.props;
+
+    if (location.state && location.state.movie) {
+      const backdrop = getBackdropUrl(location.state.movie.backdrop, 'w1280');
+      return this.props.changeBackground(backdrop);
+    }
+
+    this.props.requestMovie(match.params.id);
+  }
+
+  getMovie() {
+    const { location, match, movies } = this.props;
+
+    if (location.state) {
+      return location.state.movie;
+    }
+
+    return movies.get(match.params.id);
   }
 
   render() {
-    const id = this.props.match.params.id;
-    const movie = this.props.movies.get(id);
+    const movie = this.getMovie();
 
     if (!movie) {
       return <Preloader />;
@@ -58,7 +74,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onMovieRequest: (id) => dispatch(requestMovie(id)),
+  requestMovie: (id) => dispatch(requestMovie(id)),
+  changeBackground: (url) => dispatch(changeBackground(url))
 });
 
 export default connect(

@@ -36,12 +36,6 @@ function* onMoviesGroupRequest({ payload: { group } }) {
 }
 
 function* onMovieRequest({ payload: { id }}) {
-  const { movies } = yield select();
-
-  if (movies.has(id)) {
-    return;
-  }
-
   const { response, error } = yield call(get, endpoint.movie(id));
 
   if (response) {
@@ -49,7 +43,6 @@ function* onMovieRequest({ payload: { id }}) {
     yield put(saveMovie(movie));
 
     if (movie.backdrop) {
-      // TODO move to app saga
       yield put(changeBackground(getBackdropUrl(movie.backdrop, 'w1280')));
     }
   }

@@ -7,12 +7,17 @@ import { createMovieFromResponse } from '../../factories/movieFactory';
 import { replaceSearchMovieList, updateSearchQuery } from './searchActions';
 
 function* onMoviesSearchRequest({ payload: { query } }) {
+  const searchQuery = query.trim();
+  if (searchQuery === '') {
+    return;
+  }
+
   yield put(replaceSearchMovieList([]));
-  yield put(updateSearchQuery(query));
+  yield put(updateSearchQuery(searchQuery));
 
   yield call(delay, 500);
 
-  const { response, error } = yield call(get, endpoint.search(), { query });
+  const { response } = yield call(get, endpoint.search(), { query: searchQuery });
 
   if (response) {
     const movies = response.data.results.map(result => createMovieFromResponse(result));

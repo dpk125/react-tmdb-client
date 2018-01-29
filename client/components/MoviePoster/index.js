@@ -1,5 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { getPosterUrl } from '../../core/helpers/imageUrlResolver';
 
 export const MoviePoster = ({ title, rating, poster }) => {
@@ -13,7 +13,7 @@ export const MoviePoster = ({ title, rating, poster }) => {
   return (
     <div className="movie-list-item" style={style}>
       <span className="movie-list-item__rating">{rating || '-'}</span>
-      <span className={'movie-list-item__name' + (poster ? '' : ' movie-list-item__name--visible')} >
+      <span className={'movie-list-item__name' + (poster ? '' : ' movie-list-item__name--visible')}>
         {title}
       </span>
     </div>
@@ -24,5 +24,5 @@ MoviePoster.propTypes = {
   title: PropTypes.string.isRequired,
   rating: PropTypes.number,
   poster: PropTypes.string,
-  size: PropTypes.number
+  size: PropTypes.number,
 };

@@ -19,7 +19,7 @@ class Wishlist extends React.Component {
           }
         </div>
       </div>
-    )
+    );
   }
 }
 

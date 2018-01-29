@@ -1,0 +1,2 @@
+export const REQUEST_GENRES_LIST = 'genres.REQUEST_GENRES_LIST';
+export const REFRESH_GENRES_LIST = 'genres.REFRESH_GENRES_LIST';

@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { changeBackground, requestMovie } from '../../core/modules/movies/moviesActions';
-import { Rating } from '../../components/Rating';
-import { Preloader } from '../../components/Preloader';
 import { MoviePoster } from '../../components/MoviePoster';
-import { getBackdropUrl } from '../../core/helpers/imageUrlResolver';
+import { Preloader } from '../../components/Preloader';
+import { Rating } from '../../components/Rating';
 import WishlistButton from '../../components/WishlistButton';
+import { getBackdropUrl } from '../../core/helpers/imageUrlResolver';
+import { changeBackground, requestMovie } from '../../core/modules/movies/moviesActions';
 
 class Movie extends React.Component {
   componentWillMount() {
@@ -40,13 +40,13 @@ class Movie extends React.Component {
       <div className="row">
         <div className="col-sm-8 col-sm-offset-2">
           <div className="row">
-              <div className="col-sm-4 text-center">
-                {movie.poster && (
-                  <MoviePoster {...movie} />
-                )}
+            <div className="col-sm-4 text-center">
+              {movie.poster && (
+                <MoviePoster {...movie} />
+              )}
 
-                <WishlistButton movie={movie}/>
-              </div>
+              <WishlistButton movie={movie} />
+            </div>
 
             <div className="col-sm-8">
               <div className="release-date">
@@ -68,7 +68,7 @@ class Movie extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
@@ -78,7 +78,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   requestMovie: (id) => dispatch(requestMovie(id)),
-  changeBackground: (url) => dispatch(changeBackground(url))
+  changeBackground: (url) => dispatch(changeBackground(url)),
 });
 
 export default connect(

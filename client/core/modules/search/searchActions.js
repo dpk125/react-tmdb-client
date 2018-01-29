@@ -1,28 +1,28 @@
-import { constants } from '../../constants';
+import { REPLACE_SEARCH_MOVIE_LIST, REQUEST_MOVIE_SEARCH, SET_SEARCH_QUERY } from '../../constants/search';
 
 export const requestMoviesBySearch = (query) => {
   return {
-    type: constants.search.REQUEST_MOVIE_SEARCH,
+    type: REQUEST_MOVIE_SEARCH,
     payload: {
-      query
-    }
-  }
+      query,
+    },
+  };
 };
 
 export const replaceSearchMovieList = (movies) => {
   return {
-    type: constants.search.REPLACE_SEARCH_MOVIE_LIST,
+    type: REPLACE_SEARCH_MOVIE_LIST,
     payload: {
-      movies
-    }
-  }
+      movies,
+    },
+  };
 };
 
 export const updateSearchQuery = (query) => {
   return {
-    type: constants.search.SET_SEARCH_QUERY,
+    type: SET_SEARCH_QUERY,
     payload: {
-      query
-    }
-  }
+      query,
+    },
+  };
 };

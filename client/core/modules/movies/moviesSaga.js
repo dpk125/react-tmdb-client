@@ -1,12 +1,12 @@
+import { List } from 'immutable';
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
-import { constants } from '../../../core/constants';
 import { endpoint } from '../../api/endpoints';
 import { get } from '../../api/requests';
-import { appendToCategoryMovieList, appendToGenreMovieList, changeBackground, saveMovie } from './moviesActions';
-import { getBackdropUrl } from '../../helpers/imageUrlResolver';
+import { REQUEST_MOVIE, REQUEST_MOVIE_GENRE, REQUEST_MOVIE_GROUP } from '../../constants/movies';
 import { createMovieFromResponse } from '../../factories/movieFactory';
-import { List } from 'immutable';
+import { getBackdropUrl } from '../../helpers/imageUrlResolver';
 import { getNextPage } from '../../helpers/pagination';
+import { appendToCategoryMovieList, appendToGenreMovieList, changeBackground, saveMovie } from './moviesActions';
 
 function* onMoviesGenreRequest({ payload: { genre } }) {
   const { movies, genres } = yield select();
@@ -35,7 +35,7 @@ function* onMoviesGroupRequest({ payload: { group } }) {
   }
 }
 
-function* onMovieRequest({ payload: { id }}) {
+function* onMovieRequest({ payload: { id } }) {
   const { response, error } = yield call(get, endpoint.movie(id));
 
   if (response) {
@@ -50,8 +50,8 @@ function* onMovieRequest({ payload: { id }}) {
 
 export default function* moviesSaga() {
   yield all([
-    takeLatest(constants.movies.REQUEST_MOVIE_GROUP, onMoviesGroupRequest),
-    takeLatest(constants.movies.REQUEST_MOVIE_GENRE, onMoviesGenreRequest),
-    takeLatest(constants.movies.REQUEST_MOVIE, onMovieRequest),
+    takeLatest(REQUEST_MOVIE_GROUP, onMoviesGroupRequest),
+    takeLatest(REQUEST_MOVIE_GENRE, onMoviesGenreRequest),
+    takeLatest(REQUEST_MOVIE, onMovieRequest),
   ]);
 }

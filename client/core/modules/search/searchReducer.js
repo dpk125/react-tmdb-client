@@ -1,5 +1,5 @@
 import { List, Map } from 'immutable';
-import { constants } from '../../constants';
+import { REPLACE_SEARCH_MOVIE_LIST, SET_SEARCH_QUERY } from '../../constants/search';
 
 const initialState = new Map({
   movies: new List([]),
@@ -8,9 +8,9 @@ const initialState = new Map({
 
 const search = (state = initialState, action) => {
   switch (action.type) {
-    case constants.search.SET_SEARCH_QUERY:
+    case SET_SEARCH_QUERY:
       return state.set('query', action.payload.query);
-    case constants.search.REPLACE_SEARCH_MOVIE_LIST:
+    case REPLACE_SEARCH_MOVIE_LIST:
       return state.set('movies', new List(action.payload.movies));
     default:
       return state;

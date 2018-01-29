@@ -1,13 +1,12 @@
-import { applyMiddleware, compose, createStore } from 'redux';
 import { routerMiddleware } from 'react-router-redux';
-import createSagaMiddleware from 'redux-saga';
+import { applyMiddleware, compose, createStore } from 'redux';
+import { composeWithDevTools, devToolsEnhancer } from 'redux-devtools-extension/developmentOnly';
 import persistState, { mergePersistedState } from 'redux-localstorage';
 import filter from 'redux-localstorage-filter';
 import adapter from 'redux-localstorage/lib/adapters/localStorage';
-import { devToolsEnhancer, composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
+import createSagaMiddleware from 'redux-saga';
 import rootReducer from '../reducers';
 import rootSaga from '../sagas';
-import { fromJS } from 'immutable';
 
 export default function configureStore(history, initialState) {
   const sagaMiddleware = createSagaMiddleware();
@@ -18,11 +17,11 @@ export default function configureStore(history, initialState) {
   ];
 
   const reducer = compose(
-    mergePersistedState()
+    mergePersistedState(),
   )(rootReducer);
 
   const storage = compose(
-    filter('wishlist')
+    filter('wishlist'),
   )(adapter(window.localStorage));
 
   // TODO: do the same with immutable
@@ -34,10 +33,10 @@ export default function configureStore(history, initialState) {
     reducer,
     composeWithDevTools(
       applyMiddleware(...middlewares),
-      persistState(storage, 'tmdb')
+      persistState(storage, 'tmdb'),
     ),
     initialState,
-    devToolsEnhancer()
+    devToolsEnhancer(),
   );
 
   sagaMiddleware.run(rootSaga);

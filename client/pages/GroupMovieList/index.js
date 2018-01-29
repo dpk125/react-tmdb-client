@@ -1,9 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { connect } from 'react-redux';
-import { requestMoviesByGroup } from '../../core/modules/movies/moviesActions';
-import { Preloader } from '../../components/Preloader/index';
 import { MovieList } from '../../components/MovieList';
+import { Preloader } from '../../components/Preloader/index';
+import { requestMoviesByGroup } from '../../core/modules/movies/moviesActions';
 
 class GroupMovieList extends React.Component {
   constructor(props) {
@@ -11,6 +11,7 @@ class GroupMovieList extends React.Component {
 
     this.loadMovies = this.loadMovies.bind(this);
   }
+
   componentWillMount() {
     if (this.props.movies.get(this.props.group).isEmpty()) {
       this.loadMovies();
@@ -46,14 +47,14 @@ class GroupMovieList extends React.Component {
           <MovieList movies={movies} loadMovies={this.loadMovies} />
         </div>
       </div>
-    )
+    );
   }
 }
 
 GroupMovieList.propTypes = {
   group: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.number
+    PropTypes.number,
   ]),
   title: PropTypes.string.isRequired,
 };

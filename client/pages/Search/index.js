@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { requestMoviesBySearch } from '../../core/modules/movies/moviesActions';
 import { MovieList } from '../../components/MovieList';
 import { Preloader } from '../../components/Preloader';
+import { requestMoviesBySearch } from '../../core/modules/movies/moviesActions';
 
 class Search extends React.Component {
   constructor(props) {
@@ -28,16 +28,16 @@ class Search extends React.Component {
         {showPreloader
           ? <Preloader />
           : <div className="col-sm-9 col-offset-sm-3">
-              <MovieList movies={movies} paginate={false} />
-            </div>
+            <MovieList movies={movies} paginate={false} />
+          </div>
         }
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = state => ({
-  search: state.search
+  search: state.search,
 });
 
 const mapDispatchToProps = dispatch => ({

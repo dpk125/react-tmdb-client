@@ -32,7 +32,7 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  background: state.movies.get('background')
+  background: state.movies.get('background'),
 });
 
 const mapDispatchToProps = () => ({});

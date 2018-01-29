@@ -1,66 +1,74 @@
-import { constants } from '../../constants';
+import {
+  APPEND_TO_GENRE_MOVIE_LIST,
+  APPEND_TO_GROUP_MOVIE_LIST,
+  CHANGE_BACKGROUND,
+  REQUEST_MOVIE,
+  REQUEST_MOVIE_GENRE,
+  REQUEST_MOVIE_GROUP,
+  SAVE_MOVIE,
+} from '../../constants/movies';
 
 export const appendToCategoryMovieList = (category, movies) => {
   return {
-    type: constants.movies.APPEND_TO_GROUP_MOVIE_LIST,
+    type: APPEND_TO_GROUP_MOVIE_LIST,
     payload: {
       category,
-      movies
-    }
-  }
+      movies,
+    },
+  };
 };
 
 export const appendToGenreMovieList = (genre, movies) => {
   return {
-    type: constants.movies.APPEND_TO_GENRE_MOVIE_LIST,
+    type: APPEND_TO_GENRE_MOVIE_LIST,
     payload: {
       genre,
-      movies
-    }
-  }
+      movies,
+    },
+  };
 };
 
 export const saveMovie = (movie) => {
   return {
-    type: constants.movies.SAVE_MOVIE,
+    type: SAVE_MOVIE,
     payload: {
-      movie
-    }
-  }
+      movie,
+    },
+  };
 };
 
 export const requestMoviesByGroup = (group) => {
   return {
-    type: constants.movies.REQUEST_MOVIE_GROUP,
+    type: REQUEST_MOVIE_GROUP,
     payload: {
-      group
-    }
-  }
+      group,
+    },
+  };
 };
 
 export const requestMoviesByGenre = (genre) => {
   return {
-    type: constants.movies.REQUEST_MOVIE_GENRE,
+    type: REQUEST_MOVIE_GENRE,
     payload: {
-      genre
-    }
-  }
+      genre,
+    },
+  };
 };
 
 export const requestMovie = (id) => {
   return {
-    type: constants.movies.REQUEST_MOVIE,
+    type: REQUEST_MOVIE,
     payload: {
-      id
-    }
-  }
+      id,
+    },
+  };
 };
 
 export const changeBackground = (url) => {
   return {
-    type: constants.movies.CHANGE_BACKGROUND,
+    type: CHANGE_BACKGROUND,
     payload: {
-      url
-    }
-  }
+      url,
+    },
+  };
 };

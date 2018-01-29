@@ -1,6 +1,6 @@
 import React from 'react';
-import { MenuItem } from '../../components/MenuItem';
 import { Link } from 'react-router-dom';
+import { MenuItem } from '../../components/MenuItem';
 
 export const Home = () => (
   <div className="row">

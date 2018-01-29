@@ -1,15 +1,15 @@
-import { constants } from '../constants';
+import { CATEGORY_MOST_POPULAR, CATEGORY_TOP_RATED, CATEGORY_UPCOMING } from '../constants/category';
 
 export const baseURL = 'https://api.themoviedb.org/3';
 
 export const endpoint = {
   movies: (category) => {
     switch (category) {
-      case constants.category.MOST_POPULAR:
+      case CATEGORY_MOST_POPULAR:
         return '/movie/popular';
-      case constants.category.TOP_RATED:
+      case CATEGORY_TOP_RATED:
         return '/movie/top_rated';
-      case constants.category.UPCOMING:
+      case CATEGORY_UPCOMING:
         return '/movie/upcoming';
       default:
         return `/movie/popular`;

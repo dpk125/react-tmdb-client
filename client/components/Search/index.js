@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { requestMoviesBySearch } from '../../core/modules/search/searchActions';
 import { Link } from 'react-router-dom';
+import { requestMoviesBySearch } from '../../core/modules/search/searchActions';
 
 export class Search extends React.Component {
   constructor(props) {
@@ -32,7 +32,7 @@ export class Search extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  search: state.movies.get('search')
+  search: state.movies.get('search'),
 });
 
 const mapDispatchToProps = dispatch => ({

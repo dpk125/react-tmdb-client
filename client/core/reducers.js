@@ -1,7 +1,7 @@
 import { routerReducer as routing } from 'react-router-redux';
 import { combineReducers } from 'redux';
-import movies from './modules/movies/moviesReducer';
 import genres from './modules/genres/genresReducer';
+import movies from './modules/movies/moviesReducer';
 import search from './modules/search/searchReducer';
 import wishlist from './modules/wishlist/wishlistReducer';
 
@@ -10,7 +10,7 @@ const rootReducer = combineReducers({
   movies,
   genres,
   search,
-  wishlist
+  wishlist,
 });
 
 export default rootReducer;

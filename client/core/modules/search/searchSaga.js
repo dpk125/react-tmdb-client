@@ -1,12 +1,12 @@
-import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
-import { constants } from '../../../core/constants';
+import { all, call, put, takeLatest } from 'redux-saga/effects';
 import { endpoint } from '../../api/endpoints';
 import { get } from '../../api/requests';
-import { replaceSearchMovieList, updateSearchQuery } from './searchActions';
+import { REQUEST_MOVIE_SEARCH } from '../../constants/search';
 import { createMovieFromResponse } from '../../factories/movieFactory';
+import { replaceSearchMovieList, updateSearchQuery } from './searchActions';
 
-function* onMoviesSearchRequest({ payload: { query }}) {
+function* onMoviesSearchRequest({ payload: { query } }) {
   yield put(replaceSearchMovieList([]));
   yield put(updateSearchQuery(query));
 
@@ -22,6 +22,6 @@ function* onMoviesSearchRequest({ payload: { query }}) {
 
 export default function* searchSaga() {
   yield all([
-    takeLatest(constants.search.REQUEST_MOVIE_SEARCH, onMoviesSearchRequest),
+    takeLatest(REQUEST_MOVIE_SEARCH, onMoviesSearchRequest),
   ]);
 }

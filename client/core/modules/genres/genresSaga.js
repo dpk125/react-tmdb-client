@@ -1,7 +1,7 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects';
-import { constants } from '../../../core/constants';
 import { endpoint } from '../../api/endpoints';
 import { get } from '../../api/requests';
+import { REQUEST_GENRES_LIST } from '../../constants/genres';
 import { appendToGenresList } from './genresActions';
 
 function* onGenresRequest() {
@@ -16,6 +16,6 @@ function* onGenresRequest() {
 
 export default function* moviesSaga() {
   yield all([
-    takeLatest(constants.genres.REQUEST_GENRES_LIST, onGenresRequest),
+    takeLatest(REQUEST_GENRES_LIST, onGenresRequest),
   ]);
 }

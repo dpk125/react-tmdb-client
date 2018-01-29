@@ -1,16 +1,16 @@
-import { constants } from '../../constants';
+import { REFRESH_GENRES_LIST, REQUEST_GENRES_LIST } from '../../constants/genres';
 
 export const appendToGenresList = (genres) => {
   return {
-    type: constants.genres.REFRESH_GENRES_LIST,
+    type: REFRESH_GENRES_LIST,
     payload: {
-      genres
-    }
-  }
+      genres,
+    },
+  };
 };
 
 export const requestGenres = (category) => {
   return {
-    type: constants.genres.REQUEST_GENRES_LIST
-  }
+    type: REQUEST_GENRES_LIST,
+  };
 };

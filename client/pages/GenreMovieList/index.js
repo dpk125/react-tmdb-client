@@ -1,9 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { connect } from 'react-redux';
-import { requestMoviesByGenre } from '../../core/modules/movies/moviesActions';
-import { Preloader } from '../../components/Preloader/index';
 import { MovieList } from '../../components/MovieList';
+import { Preloader } from '../../components/Preloader/index';
+import { requestMoviesByGenre } from '../../core/modules/movies/moviesActions';
 
 class GenreMovieList extends React.Component {
   constructor(props) {
@@ -11,6 +11,7 @@ class GenreMovieList extends React.Component {
 
     this.loadMovies = this.loadMovies.bind(this);
   }
+
   componentWillMount() {
     this.props.onMovieListRequest(this.props.genre);
   }
@@ -39,7 +40,7 @@ class GenreMovieList extends React.Component {
         movies={movies}
         loadMovies={this.loadMovies}
       />
-    )
+    );
   }
 }
 

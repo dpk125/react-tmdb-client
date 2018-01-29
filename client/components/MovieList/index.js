@@ -1,7 +1,7 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MoviePoster } from '../../components/MoviePoster/index';
-import PropTypes from 'prop-types';
 import { Button } from '../Button';
 
 export const MovieList = ({ movies, loadMovies, paginate = true }) => (

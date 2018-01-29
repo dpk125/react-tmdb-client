@@ -1,15 +1,15 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
-import App from '../App';
-import { Home } from '../../pages/Home';
+import { CATEGORY_MOST_POPULAR, CATEGORY_TOP_RATED, CATEGORY_UPCOMING } from '../../core/constants/category';
 import Genres from '../../pages/Genres';
-import Movie from '../../pages/Movie';
-import { constants } from '../../core/constants';
 import GroupMovieList from '../../pages/GroupMovieList';
+import { Home } from '../../pages/Home';
+import Movie from '../../pages/Movie';
 import Search from '../../pages/Search';
 import Wishlist from '../../pages/Wishlist';
+import App from '../App';
 
 const Root = ({ store, history }) => (
   <BrowserRouter>
@@ -23,7 +23,7 @@ const Root = ({ store, history }) => (
               path="/most-popular"
               render={() => (
                 <GroupMovieList
-                  group={constants.category.MOST_POPULAR}
+                  group={CATEGORY_MOST_POPULAR}
                   title="Most popular" />
               )}
             />
@@ -31,7 +31,7 @@ const Root = ({ store, history }) => (
               path="/top-rated"
               render={() => (
                 <GroupMovieList
-                  group={constants.category.TOP_RATED}
+                  group={CATEGORY_TOP_RATED}
                   title="Top rated" />
               )}
             />
@@ -39,7 +39,7 @@ const Root = ({ store, history }) => (
               path="/upcoming"
               render={() => (
                 <GroupMovieList
-                  group={constants.category.UPCOMING}
+                  group={CATEGORY_UPCOMING}
                   title="Upcoming" />
               )}
             />

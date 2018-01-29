@@ -6,13 +6,13 @@ export class Rating extends React.Component {
 
     this.state = {
       score: 0,
-    }
+    };
   }
 
   componentDidMount() {
     setTimeout(() => {
       this.setState({
-        score: this.props.score
+        score: this.props.score,
       });
     }, 100);
   }
@@ -40,6 +40,6 @@ export class Rating extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }

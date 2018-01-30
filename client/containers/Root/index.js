@@ -7,6 +7,7 @@ import Genres from '../../pages/Genres';
 import GroupMovieList from '../../pages/GroupMovieList';
 import { Home } from '../../pages/Home';
 import Movie from '../../pages/Movie';
+import NotFound from '../../pages/NotFound';
 import Search from '../../pages/Search';
 import Wishlist from '../../pages/Wishlist';
 import App from '../App';
@@ -45,10 +46,11 @@ const Root = ({ store, history }) => (
             />
             <Route path="/wishlist" component={Wishlist} />
             <Route
-              path="/movie/:id"
+              path="/movie/:id(\d+)"
               component={Movie}
             />
             <Route path="/search" component={Search} />
+            <Route component={NotFound} />
           </Switch>
         </App>
       </ConnectedRouter>

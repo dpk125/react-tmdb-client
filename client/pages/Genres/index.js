@@ -37,6 +37,11 @@ class Genres extends React.Component {
           <Switch>
             <Route path="/genres/:name" render={({ match }) => {
               const genre = genres.find(genre => genre.name === match.params.name);
+
+              if (!genre){
+                return <div className="genre-title">Genre was not found</div>
+              }
+
               return <GenreMovieList genre={genre.name} />;
             }} />
             <Route component={() => <div className="genre-title">Please select a genre</div>} />

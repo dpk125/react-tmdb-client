@@ -1,4 +1,7 @@
-import { REPLACE_SEARCH_MOVIE_LIST, REQUEST_MOVIE_SEARCH, SET_SEARCH_QUERY } from '../../constants/search';
+import {
+  REPLACE_SEARCH_MOVIE_LIST, REQUEST_MOVIE_SEARCH, SET_SEARCH_QUERY, SET_SEARCH_RESULTS_LOADED,
+  SET_SEARCH_RESULTS_LOADING,
+} from '../../constants/search';
 
 export const requestMoviesBySearch = (query) => {
   return {
@@ -24,5 +27,17 @@ export const updateSearchQuery = (query) => {
     payload: {
       query,
     },
+  };
+};
+
+export const setSearchResultsLoading = () => {
+  return {
+    type: SET_SEARCH_RESULTS_LOADING,
+  };
+};
+
+export const setSearchResultsLoaded = () => {
+  return {
+    type: SET_SEARCH_RESULTS_LOADED,
   };
 };
